@@ -1,0 +1,60 @@
+The KNX Libraries supports Windows and Linux for 32/64 bit platforms.
+
+This is something i've made a few iterations of, but am now porting over to c from c++
+and adding support for Linux and 64-bit.
+
+Mostly, this just adds functionality for common but tedious operations, such as data trees,
+hashing, some cryptography, string operations, etc...
+
+Below is a list of intended features. Most are already developed but need to be ported,
+while the others are new features that I hope to have implemented fairly soon. I will be
+adding [Done] tags to completed and tested features as they develop.
+
+All compilations will be done with the c++11 standard.
+
+String
+  string structure with common operations
+  LPCWSTR/LPWSTR/WCHAR etc... conversion (For windows only)
+  ASCII/Unicode conversion
+  Regex
+Hashing
+  FNV
+  FNV-1a
+Lists
+  Linked List (with iterator)
+  Doubly Linked List (with iterator)
+Data
+  Generic Smart Pointer
+  Hash table
+  String/Numeric converter
+Graphics
+  Console
+    Window System
+    Buttons
+    TextField
+    TextArea
+    Loadbar
+    Scrollbar
+  GUI
+    System wrapper (Spawned from terminal to avoid additional compilation changes)
+    Common element API (between windows/linux)
+    2D/3D support (See how far this goes, mostly intended for quick and dirty GUI's)
+    JPG/PNG wrappers
+File
+  Open
+  Create
+  Delete
+  Copy
+  LoadToBuffer
+  File (struct, stores buffered data, with iterator and markers)
+  GetFileExtension
+  GetFilePath
+  GetFileName
+Math
+  Arithmetic Engine (Order of Operation, from string. MAYBE calculus support eventually)
+Interproc
+  NamedPipe
+  UnamedPipe
+Network
+  
+  
