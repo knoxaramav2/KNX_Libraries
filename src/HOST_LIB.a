@@ -1,0 +1,8 @@
+!<arch>
+KNX_Hash.h/     1453334220  544   197121100770  60        `
+#ifndef KNX_HASH
+#define KNX_HASH
+
+void test();
+
+#endif
