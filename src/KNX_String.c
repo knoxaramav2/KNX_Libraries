@@ -1,4 +1,6 @@
-#include "KNX_String.h"
+#include "../headers/KNX_String.h"
+
+#include <stdlib.h>
 
 size_t getSubIndex(char*input, char*substring)
 {
@@ -53,11 +55,24 @@ char**split(char*input, char*delimiter)
   size_t nDlm=0;
   for (size_t x=0; x<=len; ++len)
   {
-    if (x==len)
+    if (x==len && lIndex!=x)
     {
       dlm=realloc(dlm, ++nDlm);
       dlm[nDlm-1]=malloc((len-lIndex)+1);
       strncpy(dlm[nDlm-1], delimiter+lIndex, (len-lIndex));
+    }
+
+    if (delimiter[x]=='\\')//ignore next character
+      ++x;
+    else if (delimiter[x]=='|')//break element
+    {
+      if (lIndex==x)
+        continue;
+      dlm=realloc(table,++nDlm);
+      dlm[nDlm-1]=malloc((x-lIndex)+1);
+      strncpy(dlm[nDlm-1], input+lIndex, (x-lIndex));
+      dlm[nDlm-1][x-lIndex]='\0';
+      lIndex=x+1;
     }
   }
 

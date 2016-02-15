@@ -1,9 +1,9 @@
-#include "KNX_Hash.h"
+#include "../headers/KNX_Hash.h"
 
 #include <stdio.h>
 #include <string.h>
 
-long long unsigned FNV_1(char*str)
+long long unsigned FNV_1(const char*str)
 {
 
 long long unsigned hash;
@@ -31,7 +31,7 @@ for (unsigned x=0; x<len; ++x)
 return hash;
 }
 
-long long unsigned FNV_1a(char*str)
+long long unsigned FNV_1a(const char*str)
 {
 
 long long unsigned hash;

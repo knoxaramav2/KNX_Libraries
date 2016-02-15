@@ -3,42 +3,38 @@
 CC=gcc
 CFLAGS= -Wall -std=c11
 SRC=KNX_Hash KNX_String
-INCLUDES= -I.
-OUT=KNX_Library
+INCLUDES= ../headers
+OUT=libKNX_Library.a
 CLEANEXT = o a
 BITVRS=64
+EXPORT_PTH=../_bin/
 
-#detect OS
-#System root is defined on windows but not linux
-ifdef SYSTEMROOT
-	RM = del/Q
-	FixPath = $(subst /,\,$1)
-	PLATFORM = __WINDOWS
-	OSMODE = -DBITMODE$(BITVRS)
-	EXPORT_PTH=../Windows/$(BITVRS)bit
+#configure for Linux and Windows
+ifeq ($(shell uname), Linux)
+	FixPath = $1
+	PLATFORM = -D__LINUX
+	OSMODE = -DBITMODE=$(BITVRS)
 else
-	ifeq ($(shell uname), Linux)
-		RM= rm -f
-		FixPath = $1
-		PLATFORM = __LINUX
-		OSMODE = -DBITMODE$(BITVRS)
-		EXPORT_PTH=../Linux/$(BITVRS)bit
-	endif
+#Windows
+	FixPath = $(subst /,\,$1)
+	PLATFORM = -D__WINDOWS
+	OSMODE = -DBITMODE=$(BITVRS)
 endif
 
 .PHONY: all
 all: $(OUT)
 
-.c.o:
-	$(CC) $(INCLUDES) $(CFLAGS) $(OSMODE) $(PLATFORM) -c $< -o $@
+#.c.o:
+$(SRC:=.o): $(SRC:=.c)
+	$(CC) $(CFLAGS) $(OSMODE) $(PLATFORM) -c $< -o $@
 
 $(OUT): $(SRC:=.o)
-	ar rcs $(OUT) $(SRC:=.o)
-
-
+	ar rc $(EXPORT_PTH)/$(OUT) $(SRC:=.o)
+	ranlib  $(EXPORT_PTH)/$(OUT)
+#$(EXPORT_PTH)$(OUT)
 dep:
 		makedepend -- $(CFLAGS) -- $(INCLUDES) $(SRC)
 
 .PHONY: clean
 clean:
-	$(RM) *.o
+	rm -f $@ *.o
