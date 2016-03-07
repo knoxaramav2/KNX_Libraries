@@ -47,7 +47,7 @@ hash=2166136261;
 
 size_t len = strlen(str);
 
-for (unsigned x=0; x<len; ++x)
+for (size_t x=0; x<len; ++x)
 	{
 		hash^=str[x];
 		#if BITMODE==64
