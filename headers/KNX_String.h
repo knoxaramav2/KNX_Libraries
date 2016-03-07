@@ -9,9 +9,9 @@ extern "C"{
 //return index of substring
 size_t getSubIndex(char*input,char*substring);
 //convert characters to lowercase
-void toLower(char*input);
+const char* toLower(char*input);
 //convert characters to uppercase
-void toUpper(char*input);
+const char* toUpper(char*input);
 
 //split input string into multiple strings via delimeter
 char**split(char*input, char*delimeter);

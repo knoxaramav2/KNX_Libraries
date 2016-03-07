@@ -1,13 +1,17 @@
 # Compiles KNX static library
 
 CC=gcc
-CFLAGS= -Wall -std=c11
-SRC=KNX_Hash KNX_String
-INCLUDES= ../headers
+CFLAGS= -std=c11 -pedantic -Wall
+LDFLAGS= -g
+LIBS= -lm
+SRC=KNX_String.c KNX_Hash.c KNX_File.c
+OBJ=$(SRC:.c=.o)
+INCLUDES= -I../headers
 OUT=libKNX_Library.a
 CLEANEXT = o a
 BITVRS=64
 EXPORT_PTH=../_bin/
+EPATH_FULL=$(EXPORT_PTH)$(OUT)
 
 #configure for Linux and Windows
 ifeq ($(shell uname), Linux)
@@ -21,19 +25,15 @@ else
 	OSMODE = -DBITMODE=$(BITVRS)
 endif
 
-.PHONY: all
-all: $(OUT)
 
-#.c.o:
-$(SRC:=.o): $(SRC:=.c)
-	$(CC) $(CFLAGS) $(OSMODE) $(PLATFORM) -c $< -o $@
+%.c : %.o
+	#$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
+	$(CC) $(INCLUDES) $(CFLAGS) -c $< $(LIBS)
 
-$(OUT): $(SRC:=.o)
-	ar rc $(EXPORT_PTH)/$(OUT) $(SRC:=.o)
-	ranlib  $(EXPORT_PTH)/$(OUT)
-#$(EXPORT_PTH)$(OUT)
-dep:
-		makedepend -- $(CFLAGS) -- $(INCLUDES) $(SRC)
+$(EPATH_FULL): $(OBJ)
+	#ar rcs $(EPATH_FULL) $(OBJ)
+	ar rcs $(EPATH_FULL) $(OBJ)
+
 
 .PHONY: clean
 clean:

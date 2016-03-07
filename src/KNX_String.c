@@ -26,22 +26,26 @@ size_t getSubIndex(char*input, char*substring)
   return (unsigned)-1;
 }
 
-void toLower(char*input)
+const char* toLower(char*input)
 {
   size_t len = strlen(input);
 
   for (size_t x=0; x<len; ++x)
     if (input[x]>='A' || input[x]<='Z')//if uppercase ascii character
       input[x]-=32;
+
+return input;
 }
 
-void toUpper(char*input)
+const char* toUpper(char*input)
 {
   size_t len = strlen(input);
 
   for (size_t x=0; x<len; ++x)
     if (input[x]>='a' || input[x]<='z')//if uppercase ascii character
       input[x]+=32;
+
+  return input;
 }
 
 char**split(char*input, char*delimiter)
