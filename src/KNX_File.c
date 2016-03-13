@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-bufferedFile*openBufferedFile(char*path)
+bufferedFile*openBufferedFile(const char*path)
 {
   FILE * fp;
   //attempt to open file
@@ -41,6 +41,7 @@ bufferedFile*openBufferedFile(char*path)
     bf->text=realloc(bf->text,bf->lines);
     bf->text[bf->lines-1]=malloc(strlen(buff)+1);
     strncpy(bf->text[bf->lines-1], buff, strlen(buff)+1);
+    printf("%s", buff);
   }
 
 
@@ -53,7 +54,15 @@ bufferedFile*openBufferedFile(char*path)
 int closeBufferedFile(bufferedFile*bf)
 {
 
-return 1;
+  if (bf==NULL)
+    return 0;
+
+  free(bf->text);
+  free(bf->filePath);
+  free(bf->iterator);
+  free(bf);
+
+  return 1;
 }
 
 int saveBufferedFile(bufferedFile*bf)
@@ -93,6 +102,24 @@ char * getExtension(const char*input)
 
 char * getFileName(const char*input)
 {
+  int rPos=-1;//index before extension
+  int lPos=0;//index after last '/' or '\\'
+
+  unsigned len = (unsigned) strlen(input);
+  rPos=len-1;
+
+  if (len==0)
+    return NULL;
+
+  for (unsigned x=0; x<len; ++len)
+  {
+    if (input[x]=='.' || x+1==len)//end
+    {
+      rPos=x-1;
+      break;
+    }else if (input[x]=='/' || input[x]=='\\')
+      lPos=x;
+  }
 
   return NULL;
 }

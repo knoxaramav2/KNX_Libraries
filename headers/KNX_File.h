@@ -19,14 +19,20 @@ char*iterator;
 
 }bufferedFile;
 
-//creates new bufferd file
-bufferedFile*openBufferedFile(char*path);
+//general functions
+bufferedFile*openBufferedFile(const char*path);
 int closeBufferedFile(bufferedFile*);
 int saveBufferedFile(bufferedFile*);
 
+//path functions
 char * getExtension(const char*);
 char * getFileName(const char*);
 char * getPath(const char*);
+//iterator functions
+char getChar(bufferedFile *);
+char getLine(bufferedFile *);
+void toStart(bufferedFile *);//reset iterator to beginning
+void toEnd(bufferedFile *);//place iterator at end
 
 #ifdef __cplusplus
 }

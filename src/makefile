@@ -26,7 +26,7 @@ else
 endif
 
 
-%.c : %.o
+%.o : %.c
 	#$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
 	$(CC) $(INCLUDES) $(CFLAGS) -c $< $(LIBS)
 

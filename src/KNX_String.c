@@ -1,6 +1,7 @@
 #include "../headers/KNX_String.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 size_t getSubIndex(char*input, char*substring)
 {
@@ -31,8 +32,13 @@ const char* toLower(char*input)
   size_t len = strlen(input);
 
   for (size_t x=0; x<len; ++x)
-    if (input[x]>='A' || input[x]<='Z')//if uppercase ascii character
-      input[x]-=32;
+    if (input[x]>='A' && input[x]<='Z')//if uppercase ascii character
+      {
+        printf("%c>>", input[x]);
+        input[x]+=32;
+        printf("%c\n", input[x]);
+      }
+
 
 return input;
 }
@@ -42,8 +48,8 @@ const char* toUpper(char*input)
   size_t len = strlen(input);
 
   for (size_t x=0; x<len; ++x)
-    if (input[x]>='a' || input[x]<='z')//if uppercase ascii character
-      input[x]+=32;
+    if (input[x]>='a' && input[x]<='z')//if uppercase ascii character
+      input[x]-=32;
 
   return input;
 }
