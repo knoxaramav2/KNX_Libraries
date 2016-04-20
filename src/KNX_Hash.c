@@ -36,9 +36,11 @@ long long unsigned FNV_1a(const char*str)
 
 long long unsigned hash;
 
-#if BITMODE==64
+#if BMODE==64
+//printf("64 bit\n");
 hash=14695981039346656037ULL;//FNV offset
-#elif BITMODE==32
+#elif BMODE==32
+//printf("32 bit\n");
 hash=2166136261;
 #endif
 

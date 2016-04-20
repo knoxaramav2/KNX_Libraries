@@ -2,9 +2,7 @@
 #define KNX_CMP_H
 
 /*
-	Used simply to remainder of library
-	the platfrom specifications
-
+	Defines KNX Library version constants
 */
 #define SDK_VERSION "1.0.0"
 

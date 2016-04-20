@@ -19,7 +19,6 @@ bufferedFile*openBufferedFile(const char*path)
     return NULL;
   }
 
-
   bf=malloc(strlen(path)+1);
   if (bf==NULL)
     {
