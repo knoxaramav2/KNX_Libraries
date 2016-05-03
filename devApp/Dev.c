@@ -6,9 +6,8 @@
 
 int main()
 {
-printf("%llu\n", FNV_1a("Hello World"));
-printf("%llu\n", FNV_1a("Hello World"));
-printf("%llu\n", FNV_1a("Hello World"));
+
+printf("%d\n", isNumeric("-70"));
 
 return 0;
 }

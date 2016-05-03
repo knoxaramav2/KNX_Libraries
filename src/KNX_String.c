@@ -89,6 +89,8 @@ int isNumeric(const char * input)
 
   size_t size=strlen(input);
 
+  //printf(">> %s\n", input);
+
   for (unsigned x=0; x<size; ++x)
   {
     if (input[x]=='.')
@@ -97,6 +99,11 @@ int isNumeric(const char * input)
         return 0;
       else
         deciFound=1;
+      }
+    else if (input[x]=='-')
+      {
+        if (x>0)
+          return 0;
       }
     else if (input[x]<'0' || input[x]>'9')
       return 0;
