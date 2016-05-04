@@ -14,7 +14,7 @@ LIBPATH = $(LIBDIR)32/
 endif
 
 all:
-	$(CC) $(SRC) $(GFLAGS) $(BMODE) -L$(LIBPATH) -lKNX_Library -o dev.exe
+	$(CC) $(SRC) $(GFLAGS) $(BITMODE) -L$(LIBPATH) -lKNX_Library -o dev.exe
 
 clean:
 	rm -f *.o

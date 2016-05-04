@@ -1,7 +1,9 @@
+#define _GNU_SOURCE
 #include "../headers/KNX_File.h"
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 bufferedFile*openBufferedFile(const char*path)
 {
@@ -11,7 +13,7 @@ bufferedFile*openBufferedFile(const char*path)
   if (fp==NULL)
     return NULL;
 
-  bufferedFile * bf = malloc(sizeof(bufferedFile*));
+  bufferedFile * bf = malloc(sizeof(bufferedFile));
 
   if (bf==NULL)
   {
@@ -19,12 +21,7 @@ bufferedFile*openBufferedFile(const char*path)
     return NULL;
   }
 
-  bf=malloc(strlen(path)+1);
-  if (bf==NULL)
-    {
-      fclose(fp);
-      free(bf);
-    }
+  bf->filePath = malloc(sizeof(path)+1);
 
   strncpy(bf->filePath,path,strlen(path)+1);
 
@@ -37,13 +34,25 @@ bufferedFile*openBufferedFile(const char*path)
   while ((read = getline(&buff, &buffLen, fp)) != -1)
   {
     ++bf->lines;
-    bf->text=realloc(bf->text,bf->lines);
-    bf->text[bf->lines-1]=malloc(strlen(buff)+1);
+    char ** tmp=(char**)realloc(bf->text,bf->lines*sizeof(char*));
+    if (tmp==NULL)
+    {
+      perror("realloc");
+      return NULL;
+    }
+    bf->text=tmp;
+    fflush(stdout);
+    bf->text[bf->lines-1]=(char*)malloc(strlen(buff)+1);
+    fflush(stdout);
     strncpy(bf->text[bf->lines-1], buff, strlen(buff)+1);
-    printf("%s", buff);
+
+    //remove newline/carriage return (windows)
+    #ifdef __WINDOWS
+    bf->text[bf->lines-1][strlen(buff)-2]=0;
+    #else//Linux
+    bf->text[bf->lines-1][strlen(buff)-1]=0;
+    #endif
   }
-
-
   //close file handle
   fclose(fp);
 
@@ -66,7 +75,22 @@ int closeBufferedFile(bufferedFile*bf)
 
 int saveBufferedFile(bufferedFile*bf)
 {
+  if (bf==NULL)
+    return 0;
 
+  FILE * fp = fopen(bf->filePath ,"w");
+
+  if (fp==NULL)
+    return 0;
+
+  for (size_t x=0; x<bf->lines; ++x)
+  {
+    #ifdef __WINDOWS
+    fprintf(fp, "%s\r\n", bf->text[x]);
+    #else//Linux
+    fprintf(fp, "%s\n", bf->text[x]);
+    #endif
+  }
 return 1;
 }
 
@@ -77,15 +101,17 @@ char * getExtension(const char*input)
   if (input==NULL)
     return NULL;
 
+  printf("<<");
+  fflush(stdout);
   size_t len = strlen(input);
-
+  printf(">>");
   //scan for '.'
-  unsigned dPos=-1;
-  for (size_t x=len-1; x>=0; --x)
+  int dPos=-1;
+  for (int x=(int)len-1; x>=0; --x)
   {
     if (input[x]=='.')
       {
-        dPos=(unsigned)x;
+        dPos=(int)x;
         break;
       }
   }
@@ -93,8 +119,10 @@ char * getExtension(const char*input)
   if (dPos==-1)
     return NULL;
 
+  printf("%d\n", (int)(len-dPos)+1);
   char * ret = malloc((len-dPos)+1);
-  strncpy(ret, input+dPos, len);
+  strncpy(ret, input+dPos, len+1);
+
 
   return ret;
 }
@@ -123,8 +151,47 @@ char * getFileName(const char*input)
   return NULL;
 }
 
-char *getPath(const char*input)
+char * getPath(const char * input)
 {
+
+  return NULL;
+}
+
+char *getExePath()
+{
+
+  char path[256];
+  char dest[256];
+  //struct stat info;
+  //pid_t pid = getpid();
+  sprintf(path, "/proc/self/exe");
+  readlink(path, dest, 256);
+
+  //localAddr = dest;
+
+  #ifdef __WINDOWS
+  //remove cygwin path
+
+  char * lcAddr = malloc(sizeof(dest)-12);
+  lcAddr[0]=dest[0];
+  lcAddr[1]=':';
+  strncpy(lcAddr, dest+12, sizeof(dest)-12);
+  lcAddr[sizeof(dest)-12]=0;
+
+  /*
+  localAddr.erase(localAddr.begin(), localAddr.begin()+10);
+  localAddr.erase(localAddr.end()-3, localAddr.end());
+  localAddr.insert(localAddr.begin()+1, ':');*/
+
+  return lcAddr;
+  #else
+  //localAddr.erase(localAddr.end()-3, localAddr.end());
+  char *lcAddr = malloc(sizeof(dest)-3);
+  strncpy(lcAddr, dest, sizeof(dest)-3);
+  lcAddr[sizeof(dest)-3]=0;
+  return lcAddr;
+
+  #endif
 
   return NULL;
 }

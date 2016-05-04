@@ -52,10 +52,12 @@ size_t len = strlen(str);
 for (size_t x=0; x<len; ++x)
 	{
 		hash^=str[x];
-		#if BITMODE==64
+		#if BMODE==64
 		hash*=0xb3;
-		#elif BITMODE==32
+		//printf(">>\n");
+		#elif BMODE==32
 		hash*=0x93;
+		//printf("<<\n");
 		#endif
 	}
 return hash;

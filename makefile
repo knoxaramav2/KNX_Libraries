@@ -7,5 +7,5 @@ subdirs:
 	 $(MAKE) -C $$dir; \
 	done
 
-rundev: devApp/dev.exe
+dev: devApp/dev.exe
 	devApp/dev.exe

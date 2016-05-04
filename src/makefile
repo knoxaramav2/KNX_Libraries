@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS= -std=c11 -pedantic -Wall
 LDFLAGS= -g
 LIBS= -lm
-SRC=KNX_String.c KNX_Hash.c KNX_File.c
+SRC=KNX_String.c KNX_Hash.c KNX_File.c KNX_Data.c
 OBJ=$(SRC:.c=.o)
 INCLUDES= -I../headers
 OUT=libKNX_Library.a
@@ -35,7 +35,7 @@ endif
 
 %.o : %.c
 	#$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
-	$(CC) -DBMODE=64 $(INCLUDES) $(CFLAGS) -c $< $(LIBS)
+	$(CC) $(BITMODE) $(INCLUDES) $(CFLAGS) -c $< $(LIBS)
 
 $(EPATH_FULL): $(OBJ)
 	#ar rcs $(EPATH_FULL) $(OBJ)

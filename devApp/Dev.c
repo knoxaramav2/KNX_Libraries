@@ -4,10 +4,13 @@
 
 #include <stdio.h>
 
+#include <stdlib.h>
+
 int main()
 {
-
-printf("%d\n", isNumeric("-70"));
+//system("ls");
+//bufferedFile * bf = openBufferedFile("test.txt");
+printf("%s\n", getPath("dev.test.cfl"));
 
 return 0;
 }
