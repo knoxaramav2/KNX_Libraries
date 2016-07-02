@@ -10,7 +10,7 @@ int main()
 {
 //system("ls");
 //bufferedFile * bf = openBufferedFile("test.txt");
-printf("%s\n", getPath("dev.test.cfl"));
+//printf("%s\n", getPath("dev.test.cfl"));
 
 return 0;
 }

@@ -9,7 +9,7 @@ OBJ=$(SRC:.c=.o)
 INCLUDES= -I../headers
 OUT=libKNX_Library.a
 CLEANEXT = o a
-BITVRS=64
+BITVRS=32
 BITMODE=-DBMODE=$(BITVRS)
 EXPORT_PTH=../_bin/
 
