@@ -97,31 +97,19 @@ return 1;
 
 char * getExtension(const char*input)
 {
+  if (input==0)
+    return 0;
 
-  if (input==NULL)
-    return NULL;
-
-  printf("<<");
-  fflush(stdout);
   size_t len = strlen(input);
-  printf(">>");
-  //scan for '.'
-  int dPos=-1;
-  for (int x=(int)len-1; x>=0; --x)
-  {
-    if (input[x]=='.')
-      {
-        dPos=(int)x;
-        break;
-      }
-  }
+  size_t x = len - 1;
 
-  if (dPos==-1)
-    return NULL;
+  for (; x>=0 && input[x] != '.'; --x);
 
-  printf("%d\n", (int)(len-dPos)+1);
-  char * ret = malloc((len-dPos)+1);
-  strncpy(ret, input+dPos, len+1);
+  if (input[x] == '.') ++x;
+
+  char * ret = malloc(len - x + 1);
+  strncpy(ret, input+x, len - x);
+  ret[len - x] = 0;
 
 
   return ret;
@@ -129,32 +117,51 @@ char * getExtension(const char*input)
 
 char * getFileName(const char*input)
 {
-  int rPos=-1;//index before extension
-  int lPos=0;//index after last '/' or '\\'
+  if (input==0)
+	  return 0;
 
-  unsigned len = (unsigned) strlen(input);
-  rPos=len-1;
+  size_t len = strlen(input);
 
-  if (len==0)
-    return NULL;
+  if (len == 0)
+	  return 0;
 
-  for (unsigned x=0; x<len; ++len)
+  size_t rLoc = len - 1;//index before extension
+  char * ret = 0;
+
+  for (size_t x = rLoc; x >= 0 ; --x)
   {
-    if (input[x]=='.' || x+1==len)//end
-    {
-      rPos=x-1;
-      break;
-    }else if (input[x]=='/' || input[x]=='\\')
-      lPos=x;
+	if (input[x] == '.')
+		rLoc = x;
+
+	if (x==0 || input[x] == '/' || input[x] == '\\')
+	{
+		int rlen = rLoc - (x+1);
+		ret = malloc(rlen + 1);
+		strncpy(ret, input + x + 1, rlen);
+		ret[rlen]=0;
+		break;
+	}
   }
 
-  return NULL;
+  return ret;
 }
 
 char * getPath(const char * input)
-{
+{	
 
-  return NULL;
+if (input == 0) return 0;
+
+size_t len = strlen(input);
+size_t x = len - 1;
+
+for (; x>=0 && input[x] != '/' && input[x] != '\\'; --x);
+
+char * ret = malloc(x+1);
+strncpy(ret, input, x);
+ret[x]=0;
+
+
+return ret;
 }
 
 char *getExePath()
