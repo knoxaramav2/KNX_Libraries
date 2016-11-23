@@ -1,0 +1,408 @@
+
+Msys Configuration Diagnostics
+Current System Time: Sun Jun 05 11:50:21 2016
+
+Windows 7 Ultimate Ver 6.1 Build 7601 Service Pack 1
+
+Path:	C:\Windows\system32
+	C:\Windows
+	C:\Windows\System32\Wbem
+	C:\Windows\System32\WindowsPowerShell\v1.0\
+	C:\Program Files\Git\cmd
+	C:\Program Files\Git\mingw64\bin
+	C:\Program Files\Git\usr\bin
+	C:\cygwin64\bin
+	C:\Users\Knox\AppData\Local\atom\bin
+
+Output from C:\Program Files\Git\usr\bin\id.exe
+UID: 197608(Knox)           GID: 197121 groups=197121
+)
+
+SysDir: C:\Windows\system32
+WinDir: C:\Windows
+
+Path = 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\cygwin64\bin;C:\Users\Knox\AppData\Local\atom\bin'
+
+ALLUSERSPROFILE = 'C:\ProgramData'
+APPDATA = 'C:\Users\Knox\AppData\Roaming'
+CommonProgramFiles = 'C:\Program Files\Common Files'
+CommonProgramFiles(x86) = 'C:\Program Files (x86)\Common Files'
+CommonProgramW6432 = 'C:\Program Files\Common Files'
+COMPUTERNAME = 'KNOX-PC'
+ComSpec = 'C:\Windows\system32\cmd.exe'
+FP_NO_HOST_CHECK = 'NO'
+HOMEDRIVE = 'C:'
+HOMEPATH = '\Users\Knox'
+LOCALAPPDATA = 'C:\Users\Knox\AppData\Local'
+LOGONSERVER = '\\KNOX-PC'
+NUMBER_OF_PROCESSORS = '6'
+OS = 'Windows_NT'
+PATHEXT = '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+PROCESSOR_ARCHITECTURE = 'AMD64'
+PROCESSOR_IDENTIFIER = 'AMD64 Family 21 Model 2 Stepping 0, AuthenticAMD'
+PROCESSOR_LEVEL = '21'
+PROCESSOR_REVISION = '0200'
+ProgramData = 'C:\ProgramData'
+ProgramFiles = 'C:\Program Files'
+ProgramFiles(x86) = 'C:\Program Files (x86)'
+ProgramW6432 = 'C:\Program Files'
+PROMPT = '$P$G'
+PSModulePath = 'C:\Windows\system32\WindowsPowerShell\v1.0\Modules\'
+PUBLIC = 'C:\Users\Public'
+SESSIONNAME = 'Console'
+SystemDrive = 'C:'
+SystemRoot = 'C:\Windows'
+TEMP = 'C:\Users\Knox\AppData\Local\Temp'
+TMP = 'C:\Users\Knox\AppData\Local\Temp'
+USERDOMAIN = 'Knox-PC'
+USERNAME = 'Knox'
+USERPROFILE = 'C:\Users\Knox'
+VBOX_MSI_INSTALL_PATH = 'C:\Program Files\Oracle\VirtualBox\'
+windir = 'C:\Windows'
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft-windows-mmsys.resources_31bf3856ad364e35_en-us_0f56866c20bc5e02
+  (default) = '6.1'
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft-windows-mmsys.resources_31bf3856ad364e35_en-us_0f56866c20bc5e02\6.1
+  (default) = (unsupported type)
+   = '6.1.7600.16385'
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft-windows-mmsys_31bf3856ad364e35_none_29f6589d44a3d2bb
+  (default) = '6.1'
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft-windows-mmsys_31bf3856ad364e35_none_29f6589d44a3d2bb\6.1
+  (default) = '6.1.7601.17514'
+  6.1.7601.17514 = (unsupported type)
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\wow64_microsoft-windows-mmsys_31bf3856ad364e35_none_344b02ef790494b6
+  (default) = '6.1'
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\wow64_microsoft-windows-mmsys_31bf3856ad364e35_none_344b02ef790494b6\6.1
+  (default) = '6.1.7601.17514'
+  6.1.7601.17514 = (unsupported type)
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft-windows-mmsys.resources_31bf3856ad364e35_en-us_b337eae8685eeccc
+  (default) = '6.1'
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft-windows-mmsys.resources_31bf3856ad364e35_en-us_b337eae8685eeccc\6.1
+  (default) = (unsupported type)
+   = '6.1.7600.16385'
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\COMSysApp
+  (default) = '@comres.dll,-947'
+  ImagePath = '%SystemRoot%\system32\dllhost.exe /Processid:{02D4B3F1-FD88-11D1-960D-00805FC79235}'
+  Description = '@comres.dll,-948'
+  ObjectName = 'LocalSystem'
+  ErrorControl = 0x00000001
+  Start = 0x00000003
+  Type = 0x00000010
+  DependOnService = (unsupported type)
+  ServiceSidType = 0x00000001
+  RequiredPrivileges = (unsupported type)
+  FailureActions = (unsupported type)
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\services\COMSysApp
+  (default) = '@comres.dll,-947'
+  ImagePath = '%SystemRoot%\system32\dllhost.exe /Processid:{02D4B3F1-FD88-11D1-960D-00805FC79235}'
+  Description = '@comres.dll,-948'
+  ObjectName = 'LocalSystem'
+  ErrorControl = 0x00000001
+  Start = 0x00000003
+  Type = 0x00000010
+  DependOnService = (unsupported type)
+  ServiceSidType = 0x00000001
+  RequiredPrivileges = (unsupported type)
+  FailureActions = (unsupported type)
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\COMSysApp
+  (default) = '@comres.dll,-947'
+  ImagePath = '%SystemRoot%\system32\dllhost.exe /Processid:{02D4B3F1-FD88-11D1-960D-00805FC79235}'
+  Description = '@comres.dll,-948'
+  ObjectName = 'LocalSystem'
+  ErrorControl = 0x00000001
+  Start = 0x00000003
+  Type = 0x00000010
+  DependOnService = (unsupported type)
+  ServiceSidType = 0x00000001
+  RequiredPrivileges = (unsupported type)
+  FailureActions = (unsupported type)
+
+obcaseinsensitive set to 1
+
+Msys installations found in the registry:
+
+c:  hd  NTFS    476837Mb  19% CP CS UN PA FC     
+d:  hd  NTFS    114470Mb   1% CP CS UN PA FC     New Volume
+e:  hd  NTFS    953865Mb   1% CP CS UN PA FC     
+g:  fd  FAT32    60382Mb   3% CP    UN           UUI
+
+C:\Program Files\Git\usr      /          system  binary,auto
+C:\Program Files\Git\usr\bin  /usr/bin   system  binary,auto
+C:\Program Files\Git\usr\lib  /usr/lib   system  binary,auto
+cygdrive prefix               /cygdrive  user    binary,auto
+
+Found: C:\Program Files\Git\usr\bin\awk.exe
+Found: C:\cygwin64\bin\awk
+Warning: C:\Program Files\Git\usr\bin\awk.exe hides C:\cygwin64\bin\awk
+Found: C:\Program Files\Git\usr\bin\bash.exe
+Found: C:\cygwin64\bin\bash.exe
+Warning: C:\Program Files\Git\usr\bin\bash.exe hides C:\cygwin64\bin\bash.exe
+Found: C:\Program Files\Git\usr\bin\cat.exe
+Found: C:\cygwin64\bin\cat.exe
+Warning: C:\Program Files\Git\usr\bin\cat.exe hides C:\cygwin64\bin\cat.exe
+Found: C:\Program Files\Git\usr\bin\cp.exe
+Found: C:\cygwin64\bin\cp.exe
+Warning: C:\Program Files\Git\usr\bin\cp.exe hides C:\cygwin64\bin\cp.exe
+Found: C:\cygwin64\bin\cpp.exe
+Not Found: crontab
+Found: C:\Windows\system32\find.exe
+Found: C:\Program Files\Git\usr\bin\find.exe
+Warning: C:\Windows\system32\find.exe hides C:\Program Files\Git\usr\bin\find.exe
+Found: C:\cygwin64\bin\find.exe
+Warning: C:\Windows\system32\find.exe hides C:\cygwin64\bin\find.exe
+Found: C:\cygwin64\bin\gcc.exe
+Found: C:\cygwin64\bin\gdb.exe
+Found: C:\Program Files\Git\usr\bin\grep.exe
+Found: C:\cygwin64\bin\grep.exe
+Warning: C:\Program Files\Git\usr\bin\grep.exe hides C:\cygwin64\bin\grep.exe
+Found: C:\Program Files\Git\usr\bin\kill.exe
+Found: C:\cygwin64\bin\kill.exe
+Warning: C:\Program Files\Git\usr\bin\kill.exe hides C:\cygwin64\bin\kill.exe
+Found: C:\cygwin64\bin\ld.exe
+Found: C:\Program Files\Git\usr\bin\ls.exe
+Found: C:\cygwin64\bin\ls.exe
+Warning: C:\Program Files\Git\usr\bin\ls.exe hides C:\cygwin64\bin\ls.exe
+Found: C:\cygwin64\bin\make.exe
+Found: C:\Program Files\Git\usr\bin\mv.exe
+Found: C:\cygwin64\bin\mv.exe
+Warning: C:\Program Files\Git\usr\bin\mv.exe hides C:\cygwin64\bin\mv.exe
+Found: C:\Program Files\Git\usr\bin\patch.exe
+Found: C:\Program Files\Git\usr\bin\perl.exe
+Found: C:\cygwin64\bin\perl.exe
+Warning: C:\Program Files\Git\usr\bin\perl.exe hides C:\cygwin64\bin\perl.exe
+Found: C:\Program Files\Git\usr\bin\rm.exe
+Found: C:\cygwin64\bin\rm.exe
+Warning: C:\Program Files\Git\usr\bin\rm.exe hides C:\cygwin64\bin\rm.exe
+Found: C:\Program Files\Git\usr\bin\sed.exe
+Found: C:\cygwin64\bin\sed.exe
+Warning: C:\Program Files\Git\usr\bin\sed.exe hides C:\cygwin64\bin\sed.exe
+Found: C:\Program Files\Git\usr\bin\ssh.exe
+Found: C:\Program Files\Git\usr\bin\sh.exe
+Found: C:\cygwin64\bin\sh.exe
+Warning: C:\Program Files\Git\usr\bin\sh.exe hides C:\cygwin64\bin\sh.exe
+Found: C:\Program Files\Git\usr\bin\tar.exe
+Found: C:\cygwin64\bin\tar.exe
+Warning: C:\Program Files\Git\usr\bin\tar.exe hides C:\cygwin64\bin\tar.exe
+Found: C:\Program Files\Git\usr\bin\test.exe
+Found: C:\cygwin64\bin\test.exe
+Warning: C:\Program Files\Git\usr\bin\test.exe hides C:\cygwin64\bin\test.exe
+Found: C:\Program Files\Git\usr\bin\vi
+Found: C:\cygwin64\bin\vi.exe
+Warning: C:\Program Files\Git\usr\bin\vi hides C:\cygwin64\bin\vi.exe
+Found: C:\Program Files\Git\usr\bin\vim.exe
+
+  148k 2016/03/11 C:\Program Files\Git\usr\bin\msys-apr-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-apr-1-0.dll" v0.0 ts=2016-03-11 00:17
+  114k 2016/03/11 C:\Program Files\Git\usr\bin\msys-aprutil-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-aprutil-1-0.dll" v0.0 ts=2016-03-11 00:23
+  490k 2016/03/11 C:\Program Files\Git\usr\bin\msys-asn1-8.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-asn1-8.dll" v0.0 ts=2016-03-11 00:34
+   87k 2016/04/01 C:\Program Files\Git\usr\bin\msys-atomic-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-atomic-1.dll" v0.0 ts=2016-03-31 12:57
+  191k 2015/05/05 C:\Program Files\Git\usr\bin\msys-blkid-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-blkid-1.dll" v0.0 ts=2015-05-05 02:02
+   63k 2014/11/04 C:\Program Files\Git\usr\bin\msys-bz2-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-bz2-1.dll" v0.0 ts=2014-11-04 03:35
+   10k 2014/11/05 C:\Program Files\Git\usr\bin\msys-charset-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-charset-1.dll" v0.0 ts=2014-11-04 10:11
+  109k 2016/04/01 C:\Program Files\Git\usr\bin\msys-cilkrts-5.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-cilkrts-5.dll" v0.0 ts=2016-03-31 12:57
+    9k 2016/03/11 C:\Program Files\Git\usr\bin\msys-com_err-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-com_err-1.dll" v0.0 ts=2016-03-11 00:34
+   10k 2016/03/30 C:\Program Files\Git\usr\bin\msys-crypt-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-crypt-0.dll" v0.0 ts=2016-03-29 22:28
+ 1741k 2016/05/04 C:\Program Files\Git\usr\bin\msys-crypto-1.0.0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-crypto-1.0.0.dll" v0.0 ts=2016-05-03 08:03
+  441k 2016/04/14 C:\Program Files\Git\usr\bin\msys-curl-4.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-curl-4.dll" v0.0 ts=2016-04-13 22:34
+  160k 2016/01/12 C:\Program Files\Git\usr\bin\msys-edit-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-edit-0.dll" v0.0 ts=2016-01-12 01:50
+  144k 2016/03/29 C:\Program Files\Git\usr\bin\msys-expat-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-expat-1.dll" v0.0 ts=2016-03-29 01:28
+  266k 2015/05/05 C:\Program Files\Git\usr\bin\msys-fdisk-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-fdisk-1.dll" v0.0 ts=2015-05-05 02:02
+   26k 2014/11/14 C:\Program Files\Git\usr\bin\msys-ffi-6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-ffi-6.dll" v0.0 ts=2014-11-13 11:55
+   59k 2016/03/01 C:\Program Files\Git\usr\bin\msys-formw6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-formw6.dll" v0.0 ts=2016-03-01 03:14
+   70k 2016/04/01 C:\Program Files\Git\usr\bin\msys-gcc_s-seh-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gcc_s-seh-1.dll" v0.0 ts=2016-03-31 12:39
+   40k 2014/11/07 C:\Program Files\Git\usr\bin\msys-gdbm-4.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gdbm-4.dll" v0.0 ts=2014-11-07 00:31
+   13k 2014/11/07 C:\Program Files\Git\usr\bin\msys-gdbm_compat-4.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gdbm_compat-4.dll" v0.0 ts=2014-11-07 00:32
+  528k 2016/03/28 C:\Program Files\Git\usr\bin\msys-gmp-10.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gmp-10.dll" v0.0 ts=2016-03-27 23:05
+   23k 2016/03/28 C:\Program Files\Git\usr\bin\msys-gmpxx-4.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gmpxx-4.dll" v0.0 ts=2016-03-27 23:05
+  108k 2016/04/01 C:\Program Files\Git\usr\bin\msys-gomp-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gomp-1.dll" v0.0 ts=2016-03-31 12:40
+   10k 2016/04/01 C:\Program Files\Git\usr\bin\msys-gomp-plugin-host_nonshm-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gomp-plugin-host_nonshm-1.dll" v0.0 ts=2016-03-31 12:40
+  210k 2016/03/11 C:\Program Files\Git\usr\bin\msys-gssapi-3.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-gssapi-3.dll" v0.0 ts=2016-03-11 00:37
+   99k 2016/03/11 C:\Program Files\Git\usr\bin\msys-hdb-9.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-hdb-9.dll" v0.0 ts=2016-03-11 00:37
+   14k 2016/03/11 C:\Program Files\Git\usr\bin\msys-heimbase-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-heimbase-1.dll" v0.0 ts=2016-03-11 00:33
+   25k 2016/03/11 C:\Program Files\Git\usr\bin\msys-heimntlm-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-heimntlm-0.dll" v0.0 ts=2016-03-11 00:36
+   30k 2015/12/22 C:\Program Files\Git\usr\bin\msys-history6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-history6.dll" v0.0 ts=2015-12-21 22:49
+  264k 2016/03/11 C:\Program Files\Git\usr\bin\msys-hx509-5.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-hx509-5.dll" v0.0 ts=2016-03-11 00:35
+  909k 2014/11/05 C:\Program Files\Git\usr\bin\msys-iconv-2.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-iconv-2.dll" v0.0 ts=2014-11-04 10:11
+  197k 2015/08/04 C:\Program Files\Git\usr\bin\msys-idn-11.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-idn-11.dll" v0.0 ts=2015-08-03 14:17
+   41k 2016/03/02 C:\Program Files\Git\usr\bin\msys-intl-8.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-intl-8.dll" v0.0 ts=2016-03-02 01:26
+   36k 2016/03/11 C:\Program Files\Git\usr\bin\msys-kadm5clnt-7.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-kadm5clnt-7.dll" v0.0 ts=2016-03-11 00:38
+   53k 2016/03/11 C:\Program Files\Git\usr\bin\msys-kadm5srv-8.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-kadm5srv-8.dll" v0.0 ts=2016-03-11 00:38
+   26k 2016/03/11 C:\Program Files\Git\usr\bin\msys-kafs-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-kafs-0.dll" v0.0 ts=2016-03-11 00:36
+  135k 2016/03/11 C:\Program Files\Git\usr\bin\msys-kdc-2.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-kdc-2.dll" v0.0 ts=2016-03-11 00:38
+  410k 2016/03/11 C:\Program Files\Git\usr\bin\msys-krb5-26.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-krb5-26.dll" v0.0 ts=2016-03-11 00:36
+  116k 2016/02/16 C:\Program Files\Git\usr\bin\msys-magic-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-magic-1.dll" v0.0 ts=2016-02-16 00:04
+   29k 2016/03/01 C:\Program Files\Git\usr\bin\msys-menuw6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-menuw6.dll" v0.0 ts=2016-03-01 03:14
+   44k 2014/10/23 C:\Program Files\Git\usr\bin\msys-metalink-3.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-metalink-3.dll" v0.0 ts=1969-12-31 16:00
+  343k 2016/03/28 C:\Program Files\Git\usr\bin\msys-mpfr-4.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-mpfr-4.dll" v0.0 ts=2016-03-27 23:09
+   58k 2016/03/01 C:\Program Files\Git\usr\bin\msys-ncurses++w6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-ncurses++w6.dll" v0.0 ts=2016-03-01 03:14
+  327k 2016/03/01 C:\Program Files\Git\usr\bin\msys-ncursesw6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-ncursesw6.dll" v0.0 ts=2016-03-01 03:14
+   84k 2016/03/11 C:\Program Files\Git\usr\bin\msys-otp-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-otp-0.dll" v0.0 ts=2016-03-11 00:38
+  267k 2016/01/20 C:\Program Files\Git\usr\bin\msys-p11-kit-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-p11-kit-0.dll" v0.0 ts=2016-01-19 23:20
+   14k 2016/03/01 C:\Program Files\Git\usr\bin\msys-panelw6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-panelw6.dll" v0.0 ts=2016-03-01 03:14
+  282k 2016/01/20 C:\Program Files\Git\usr\bin\msys-pcre-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-pcre-1.dll" v0.0 ts=2016-01-20 01:10
+ 1719k 2016/03/11 C:\Program Files\Git\usr\bin\msys-perl5_22.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-perl5_22.dll" v0.0 ts=2016-03-10 22:33
+  209k 2015/12/22 C:\Program Files\Git\usr\bin\msys-readline6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-readline6.dll" v0.0 ts=2015-12-21 22:49
+   61k 2016/03/11 C:\Program Files\Git\usr\bin\msys-roken-18.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-roken-18.dll" v0.0 ts=2016-03-11 00:34
+   97k 2016/02/16 C:\Program Files\Git\usr\bin\msys-sasl2-3.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sasl2-3.dll" v0.0 ts=2016-02-16 00:12
+   91k 2016/03/04 C:\Program Files\Git\usr\bin\msys-serf-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-serf-1-0.dll" v0.0 ts=2016-03-03 23:18
+   13k 2016/03/11 C:\Program Files\Git\usr\bin\msys-sl-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sl-0.dll" v0.0 ts=2016-03-11 00:34
+   93k 2015/05/05 C:\Program Files\Git\usr\bin\msys-smartcols-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-smartcols-1.dll" v0.0 ts=2015-05-05 02:02
+  778k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3-0.dll" v0.0 ts=2016-01-12 00:27
+   18k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3amatch-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3amatch-0.dll" v0.0 ts=2016-01-12 00:27
+   14k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3closure-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3closure-0.dll" v0.0 ts=2016-01-12 00:27
+   10k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3compress-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3compress-0.dll" v0.0 ts=2016-01-12 00:27
+    9k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3eval-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3eval-0.dll" v0.0 ts=2016-01-12 00:27
+    9k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3fileio-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3fileio-0.dll" v0.0 ts=2016-01-12 00:27
+   15k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3fuzzer-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3fuzzer-0.dll" v0.0 ts=2016-01-12 00:27
+   13k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3icu-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3icu-0.dll" v0.0 ts=2016-01-12 00:27
+    9k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3ieee754-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3ieee754-0.dll" v0.0 ts=2016-01-12 00:27
+   10k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3nextchar-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3nextchar-0.dll" v0.0 ts=2016-01-12 00:27
+    9k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3percentile-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3percentile-0.dll" v0.0 ts=2016-01-12 00:27
+   41k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3rbu-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3rbu-0.dll" v0.0 ts=2016-01-12 00:27
+   16k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3regexp-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3regexp-0.dll" v0.0 ts=2016-01-12 00:27
+    9k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3rot13-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3rot13-0.dll" v0.0 ts=2016-01-12 00:27
+   10k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3series-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3series-0.dll" v0.0 ts=2016-01-12 00:27
+    9k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3showauth-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3showauth-0.dll" v0.0 ts=2016-01-12 00:27
+   29k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3spellfix-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3spellfix-0.dll" v0.0 ts=2016-01-12 00:27
+   12k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3totype-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3totype-0.dll" v0.0 ts=2016-01-12 00:27
+   17k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3vfslog-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3vfslog-0.dll" v0.0 ts=2016-01-12 00:27
+   13k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3vtshim-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3vtshim-0.dll" v0.0 ts=2016-01-12 00:27
+    9k 2016/01/12 C:\Program Files\Git\usr\bin\msys-sqlite3wholenumber-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-sqlite3wholenumber-0.dll" v0.0 ts=2016-01-12 00:27
+  152k 2015/06/18 C:\Program Files\Git\usr\bin\msys-ssh2-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-ssh2-1.dll" v0.0 ts=2015-06-17 23:47
+  395k 2016/05/04 C:\Program Files\Git\usr\bin\msys-ssl-1.0.0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-ssl-1.0.0.dll" v0.0 ts=2016-05-03 08:03
+   13k 2016/04/01 C:\Program Files\Git\usr\bin\msys-ssp-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-ssp-0.dll" v0.0 ts=2016-03-31 12:56
+  405k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_client-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_client-1-0.dll" v0.0 ts=2016-03-10 23:17
+   64k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_delta-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_delta-1-0.dll" v0.0 ts=2016-03-10 23:13
+   79k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_diff-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_diff-1-0.dll" v0.0 ts=2016-03-10 23:16
+   40k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_fs-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_fs-1-0.dll" v0.0 ts=2016-03-10 23:14
+  271k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_fs_fs-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_fs_fs-1-0.dll" v0.0 ts=2016-03-10 23:14
+   12k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_fs_util-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_fs_util-1-0.dll" v0.0 ts=2016-03-10 23:13
+  282k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_fs_x-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_fs_x-1-0.dll" v0.0 ts=2016-03-10 23:14
+   48k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_ra-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_ra-1-0.dll" v0.0 ts=2016-03-10 23:17
+   36k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_ra_local-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_ra_local-1-0.dll" v0.0 ts=2016-03-10 23:14
+  177k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_ra_serf-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_ra_serf-1-0.dll" v0.0 ts=2016-03-10 23:16
+  106k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_ra_svn-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_ra_svn-1-0.dll" v0.0 ts=2016-03-10 23:15
+  203k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_repos-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_repos-1-0.dll" v0.0 ts=2016-03-10 23:14
+  946k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_subr-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_subr-1-0.dll" v0.0 ts=2016-03-10 23:13
+   42k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_swig_perl-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_swig_perl-1-0.dll" v0.0 ts=2016-03-10 23:28
+   84k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_swig_py-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_swig_py-1-0.dll" v0.0 ts=2016-03-10 23:30
+   68k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_swig_ruby-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_swig_ruby-1-0.dll" v0.0 ts=2016-03-10 23:24
+  657k 2016/03/11 C:\Program Files\Git\usr\bin\msys-svn_wc-1-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-svn_wc-1-0.dll" v0.0 ts=2016-03-10 23:16
+   66k 2015/09/15 C:\Program Files\Git\usr\bin\msys-tasn1-6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-tasn1-6.dll" v0.0 ts=2015-09-15 02:04
+   55k 2016/03/01 C:\Program Files\Git\usr\bin\msys-ticw6.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-ticw6.dll" v0.0 ts=2016-03-01 03:14
+   16k 2015/05/05 C:\Program Files\Git\usr\bin\msys-uuid-1.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-uuid-1.dll" v0.0 ts=2015-05-05 02:02
+    8k 2016/04/01 C:\Program Files\Git\usr\bin\msys-vtv-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-vtv-0.dll" v0.0 ts=2016-03-31 12:56
+    8k 2016/04/01 C:\Program Files\Git\usr\bin\msys-vtv_stubs-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-vtv_stubs-0.dll" v0.0 ts=2016-03-31 12:56
+  161k 2016/03/11 C:\Program Files\Git\usr\bin\msys-wind-0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-wind-0.dll" v0.0 ts=2016-03-11 00:34
+   79k 2014/11/04 C:\Program Files\Git\usr\bin\msys-z.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-z.dll" v0.0 ts=2014-11-04 03:32
+ 3389k 2016/04/01 C:\Program Files\Git\usr\bin\msys-2.0.dll - os=4.0 img=0.0 sys=5.2
+                  "msys-2.0.dll" v0.0 ts=2016-03-31 09:47
+
+Can't find the cygrunsrv utility, skipping services check.
+
+
+Cygwin Package Information
+No setup information found
+Use -h to see help about each section
