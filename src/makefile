@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS= -std=c11 -pedantic -Wall
 LDFLAGS= -g
 LIBS= -lm
-SRC=KNX_String.c KNX_Hash.c KNX_File.c KNX_Data.c
+SRC=KNX_String.c KNX_Hash.c KNX_File.c
 OBJ=$(SRC:.c=.o)
 INCLUDES= -I../headers
 OUT=libKNX_Library.a
@@ -13,11 +13,8 @@ BITVRS=64
 BITMODE=-DBMODE=$(BITVRS)
 EXPORT_PTH=../_bin/
 
-ifeq ($(BITVRS), 64)
-EPATH_FULL=$(EXPORT_PTH)64/$(OUT)
-else
-EPATH_FULL=$(EXPORT_PTH)32/$(OUT)
-endif
+EPATH_FULL=$(EXPORT_PTH)$(BITVRS)/$(OUT)
+
 
 
 #configure for Linux and Windows
@@ -32,14 +29,16 @@ else
 	OSMODE = -DBITMODE=$(BITVRS)
 endif
 
+#all:
+#	$(CC) $(CFLAGS) $(BITMODE) $(SRC) -o $(EPATH_FULL) $(PLATFORM)
 
 %.o : %.c
 	#$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
 	$(CC) $(BITMODE) $(INCLUDES) $(CFLAGS) -c $< $(LIBS)
 
 $(EPATH_FULL): $(OBJ)
-	#ar rcs $(EPATH_FULL) $(OBJ)
 	ar rcs $(EPATH_FULL) $(OBJ)
+
 
 
 .PHONY: clean

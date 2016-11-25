@@ -21,11 +21,8 @@ return 0;
 #elif CMODE == FILE_TEST
 int main()
 {
-	printf("mark\n");
 printf("%s\n", getFileName("this/is/a.test"));
-	printf("mark\n");
 printf("%s\n", getExtension("this/is/a.test"));
-	printf("mark3\n");
 printf("%s\n", getPath("this/is/a.test"));
 }
 

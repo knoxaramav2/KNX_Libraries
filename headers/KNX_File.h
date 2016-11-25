@@ -28,6 +28,7 @@ int saveBufferedFile(bufferedFile*);
 char * getExtension(const char*);
 char * getFileName(const char*);
 char * getPath(const char*);
+char * getExePath();
 //iterator functions
 char getChar(bufferedFile *);
 char getLine(bufferedFile *);

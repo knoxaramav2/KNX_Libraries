@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <unistd.h>
+#include <limits.h>
+
 bufferedFile*openBufferedFile(const char*path)
 {
   FILE * fp;
@@ -147,21 +150,21 @@ char * getFileName(const char*input)
 }
 
 char * getPath(const char * input)
-{	
+{
 
-if (input == 0) return 0;
+  if (input == 0) return 0;
 
-size_t len = strlen(input);
-size_t x = len - 1;
+  size_t len = strlen(input);
+  size_t x = len - 1;
 
-for (; x>=0 && input[x] != '/' && input[x] != '\\'; --x);
+  for (; x>=0 && input[x] != '/' && input[x] != '\\'; --x);
 
-char * ret = malloc(x+1);
-strncpy(ret, input, x);
-ret[x]=0;
+  char * ret = malloc(x+1);
+  strncpy(ret, input, x);
+  ret[x]=0;
 
 
-return ret;
+  return ret;
 }
 
 char *getExePath()

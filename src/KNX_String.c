@@ -95,11 +95,10 @@ int isNumeric(const char * input)
   {
     if (input[x]=='.')
     {
-      if (deciFound)
+      ++deciFound;
+      if (deciFound!=1)
         return 0;
-      else
-        deciFound=1;
-      }
+    }
     else if (input[x]=='-')
       {
         if (x>0)
@@ -110,46 +109,4 @@ int isNumeric(const char * input)
   }
 
   return deciFound==0?1:2;
-}
-
-char * encodeRegItem(char type, char * str, unsigned len)
-{
-  char * item = malloc(len+3);
-  item [0] = 1;
-  item [1] = type;
-  strncpy(item+2, str, len);
-  item[len+2]=0;
-  return item;
-}
-
-char**split(char*input, char*delimiter)
-{
-  //. ? | * + {N} {N,M} - ^ $ \b \B \< \>
-  typedef enum {charMatch, optMatch, multMatch, sumMatch, nMatch, minMax, range, blankStart, blankEnd, blankWord, blankNotEdge, blankPreWord, blankPostWord,orGroup} regSet;
-
-  //[0]=command type [1]=enable flag [2...]=substring
-char ** delTable = malloc (0);
-char ** list = malloc (0);
-
-unsigned dSize=0;//delTable size
-unsigned lSize=0;//list size
-
-unsigned index=0;
-
-size_t dLen = strlen(delimiter);
-for (unsigned loop=0; loop<dLen; ++loop)
-{
-  switch(delimiter[loop])
-  {
-    case '.':
-      delTable = realloc(delTable, dSize++);
-      delTable [dSize-1] = encodeRegItem(charMatch, input+index, index-loop);
-      index=loop+1;
-    break;
-  }
-}
-
-index=0;
-
-return list;
 }
