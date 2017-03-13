@@ -21,9 +21,19 @@ return 0;
 #elif CMODE == FILE_TEST
 int main()
 {
-printf("%s\n", getFileName("this/is/a.test"));
-printf("%s\n", getExtension("this/is/a.test"));
-printf("%s\n", getPath("this/is/a.test"));
+
+char * teststr = "test.txt";
+
+BufferedFile * bfile = buildBufferedFile(teststr);
+
+if (!bfile){
+    printf("Fail\r\n");
+    return -1;
+}
+
+
+
+
 }
 
 #elif CMODE == CGRAPHIC_TEST

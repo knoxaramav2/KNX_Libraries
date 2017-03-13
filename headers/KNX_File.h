@@ -13,27 +13,28 @@ typedef struct bfileTag
 {
 char*filePath;
 unsigned lines;
+unsigned bytes;
 
 char**text;
 char*iterator;
 
-}bufferedFile;
+}BufferedFile;
 
 //general functions
-bufferedFile*openBufferedFile(const char*path);
-int closeBufferedFile(bufferedFile*);
-int saveBufferedFile(bufferedFile*);
+BufferedFile*buildBufferedFile(char*path);
+int closeBufferedFile(BufferedFile*);
+int saveBufferedFile(BufferedFile*);
 
 //path functions
-char * getExtension(const char*);
-char * getFileName(const char*);
-char * getPath(const char*);
+char * getExtension(char*);
+char * getFileName(char*, char);
+char * getPath(char*);
 char * getExePath();
 //iterator functions
-char getChar(bufferedFile *);
-char getLine(bufferedFile *);
-void toStart(bufferedFile *);//reset iterator to beginning
-void toEnd(bufferedFile *);//place iterator at end
+char getChar(BufferedFile *);
+char getLine(BufferedFile *);
+void toStart(BufferedFile *);//reset iterator to beginning
+void toEnd(BufferedFile *);//place iterator at end
 
 #ifdef __cplusplus
 }

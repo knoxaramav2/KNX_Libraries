@@ -7,8 +7,18 @@
 
 #include <unistd.h>
 #include <limits.h>
+#include <math.h>
 
-bufferedFile*openBufferedFile(const char*path)
+/*
+char*filePath;
+unsigned lines;
+
+char**text;
+char*iterator;
+*/
+
+//buffer grows exponentially at bz = 32*2^n
+BufferedFile*buildBufferedFile(char*path)
 {
   FILE * fp;
   //attempt to open file
@@ -16,53 +26,78 @@ bufferedFile*openBufferedFile(const char*path)
   if (fp==NULL)
     return NULL;
 
-  bufferedFile * bf = malloc(sizeof(bufferedFile));
+  BufferedFile * bf = malloc(sizeof(BufferedFile));
 
-  if (bf==NULL)
-  {
-    fclose(fp);
-    return NULL;
-  }
+  //copy file path
+  size_t plen = strlen(path);
+  bf->filePath = malloc(plen + 1);
+  strncpy(bf->filePath, path, plen);
+  bf->filePath[plen]=0;
 
-  bf->filePath = malloc(sizeof(path)+1);
+  bf->lines = 0;
+  bf->bytes = 0;
 
-  strncpy(bf->filePath,path,strlen(path)+1);
+  bf->text = malloc(sizeof(char*) * 32);
+  bf->iterator = 0;
 
-  bf->lines=0;
+  ssize_t bytesRead = 0;
+  size_t len = 0;
+  
+  char * temp = 0;
 
-  char* buff = NULL;
-  size_t buffLen = 0;
-  bf->text=malloc(0);
-  size_t read=0;
-  while ((read = getline(&buff, &buffLen, fp)) != -1)
-  {
-    ++bf->lines;
-    char ** tmp=(char**)realloc(bf->text,bf->lines*sizeof(char*));
-    if (tmp==NULL)
-    {
-      perror("realloc");
-      return NULL;
+  //begin reading file
+  while ((bytesRead = getline(&temp, &len, fp)) != -1){
+    
+    //remove newline characters
+    if (temp[bytesRead-1]=='\n'){
+      #ifdef __WINDOWS
+      temp[bytesRead-1]=0;
+      temp[bytesRead-2]=0;
+      bytesRead -= 2;
+      #else
+      temp[bytesRead-1]=0;
+      --bytesRead;
+      #endif
     }
-    bf->text=tmp;
-    fflush(stdout);
-    bf->text[bf->lines-1]=(char*)malloc(strlen(buff)+1);
-    fflush(stdout);
-    strncpy(bf->text[bf->lines-1], buff, strlen(buff)+1);
+    
+    
+    bf->bytes += bytesRead;
 
-    //remove newline/carriage return (windows)
-    #ifdef __WINDOWS
-    bf->text[bf->lines-1][strlen(buff)-2]=0;
-    #else//Linux
-    bf->text[bf->lines-1][strlen(buff)-1]=0;
-    #endif
+    //grow buffer if neccessary
+    if ((bf->lines+1) % 32 == 0){
+
+      char ** tmp = realloc(bf->text, 32 * pow(2, bf->lines/32));
+    
+      if (tmp == 0){
+        perror("Failed to grow buffer\r\n");
+
+        for (size_t x = 0; x < bf->lines; ++x)
+        {
+          free(bf->text[x]);
+        }
+
+        free(bf->text);
+
+        return 0;
+      }
+
+      bf->text = tmp;
+    }
+    
+    //append to buffer
+    bf->text[bf->lines] = malloc(bytesRead);
+    strncpy(bf->text[bf->lines], temp, bytesRead);
+    ++bf->lines;
+
+    printf("%lu | %s\r\n", bytesRead, bf->text[bf->lines-1]);
   }
-  //close file handle
-  fclose(fp);
+
+  free (temp);
 
   return bf;
 }
 
-int closeBufferedFile(bufferedFile*bf)
+int closeBufferedFile(BufferedFile*bf)
 {
 
   if (bf==NULL)
@@ -76,7 +111,7 @@ int closeBufferedFile(bufferedFile*bf)
   return 1;
 }
 
-int saveBufferedFile(bufferedFile*bf)
+int saveBufferedFile(BufferedFile*bf)
 {
   if (bf==NULL)
     return 0;
@@ -98,7 +133,7 @@ return 1;
 }
 
 
-char * getExtension(const char*input)
+char * getExtension(char*input)
 {
   if (input==0)
     return 0;
@@ -114,11 +149,10 @@ char * getExtension(const char*input)
   strncpy(ret, input+x, len - x);
   ret[len - x] = 0;
 
-
   return ret;
 }
 
-char * getFileName(const char*input)
+char * getFileName(char*input, char includeExtension)
 {
   if (input==0)
 	  return 0;
@@ -128,28 +162,25 @@ char * getFileName(const char*input)
   if (len == 0)
 	  return 0;
 
-  size_t rLoc = len - 1;//index before extension
   char * ret = 0;
+  char * eCap = input + len - 2;
 
-  for (size_t x = rLoc; x >= 0 ; --x)
+  for (size_t x = len - 1; x >= 0 ; --x)
   {
-	if (input[x] == '.')
-		rLoc = x;
-
-	if (x==0 || input[x] == '/' || input[x] == '\\')
-	{
-		int rlen = rLoc - (x+1);
-		ret = malloc(rlen + 1);
-		strncpy(ret, input + x + 1, rlen);
-		ret[rlen]=0;
-		break;
-	}
+    if (input[x]=='.' && !includeExtension){
+      eCap = input + x - 2;
+    } else if (input[x]=='/' || input[x]=='\\' || x == 0){
+      ret = malloc((eCap - (input + x)) + 1);
+      strncpy(ret, input + x + 1, (eCap - (input + x)) + 1);
+      ret[(eCap - (input + x)) + 1] = 0;
+      break;
+    }
   }
 
   return ret;
 }
 
-char * getPath(const char * input)
+char * getPath(char * input)
 {
 
   if (input == 0) return 0;
