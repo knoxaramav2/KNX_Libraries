@@ -3,19 +3,64 @@
 
 #include <stddef.h>
 
-//garbage collected smart pointer
-typedef struct kPtr
-{
+//data structure components
+
+typedef struct Leaf{
+
+int meta;
 void * data;
-}kPtr;
 
-//create and register new pointer
-//if pointer to object already exists, return existing reference
-kPtr * mkPtr(void*);
-int dlPtr(kPtr*);
+struct Leaf ** branch;
+struct Leaf * parent;
 
-//global smart pointer reference
-extern kPtr ** kPtrDb;
-extern size_t kdbSz;//Would be much easier with visibility controls
+}Leaf;
+
+typedef struct LNode{
+
+    int meta;
+    void * data;
+    struct LNode * prev;
+    struct LNode * next;
+
+}LNode;
+
+//data structures
+
+//binary and splay tree
+typedef struct BinaryTree{
+    Leaf * root;
+    Leaf * head;
+}BinaryTree;
+
+//Doubly linked list
+typedef struct LList{
+    LNode * root;
+    LNode * head;
+}LList;
+
+typedef struct HashMap{
+    unsigned size;
+
+    int * meta;//void type meta info
+    void ** value;
+    unsigned long long * key;//FNV-1A
+}HashMap;
+
+//factories
+BinaryTree * BuildBinaryTree();
+Leaf * BuildBTLeaf(void*, int);
+LList * BuildLinkedList();
+LNode * BuildLNode();
+HashMap * BuildHashMap();
+
+//BT methods
+void DestroyBinaryTree(BinaryTree*);
+void AppendBTLeaf(BinaryTree*, Leaf*);
+
+//Linked list methods
+void DestroyLList(LList*);
+
+//HashMap list
+void DestroyHashMap(HashMap*);
 
 #endif

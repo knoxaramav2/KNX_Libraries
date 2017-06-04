@@ -24,6 +24,8 @@ char*iterator;
 BufferedFile*buildBufferedFile(char*path);
 int closeBufferedFile(BufferedFile*);
 int saveBufferedFile(BufferedFile*);
+int saveBufferedFileAs(BufferedFile*, char*);
+
 
 //path functions
 char * getExtension(char*);

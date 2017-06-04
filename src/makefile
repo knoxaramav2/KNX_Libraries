@@ -1,21 +1,19 @@
 # Compiles KNX static library
 
 CC=gcc
-CFLAGS= -std=c11 -pedantic -Wall
+BITVRS=64
+CFLAGS= -std=c11 -pedantic -Wall -m$(BITVRS) -DBITMODE=$(BITVRS)
 LDFLAGS= -g
 LIBS= -lm
 SRC=KNX_String.c KNX_Hash.c KNX_File.c
 OBJ=$(SRC:.c=.o)
-INCLUDES= -I../headers
+INCLUDES= -I ../headers
 OUT=libKNX_Library.a
 CLEANEXT = o a
-BITVRS=64
-BITMODE=-DBMODE=$(BITVRS)
+BITMODE=$(BITVRS)
 EXPORT_PTH=../_bin/
 
 EPATH_FULL=$(EXPORT_PTH)$(BITVRS)/$(OUT)
-
-
 
 #configure for Linux and Windows
 ifeq ($(shell uname), Linux)
@@ -34,7 +32,7 @@ endif
 
 %.o : %.c
 	#$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
-	$(CC) $(BITMODE) $(INCLUDES) $(CFLAGS) -c $< $(LIBS)
+	$(CC) $(INCLUDES) $(CFLAGS) -c $< $(LIBS)
 
 $(EPATH_FULL): $(OBJ)
 	ar rcs $(EPATH_FULL) $(OBJ)

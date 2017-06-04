@@ -7,6 +7,8 @@ extern "C"{
 
 long long unsigned FNV_1a(const char*);
 long long unsigned FNV_1(const char*);
+long long unsigned FNV_1a_32(const char*);
+long long unsigned FNV_1_32(const char*);
 
 #ifdef __cplusplus
 }

@@ -38,7 +38,6 @@ BufferedFile*buildBufferedFile(char*path)
   bf->bytes = 0;
 
   bf->text = malloc(sizeof(char*) * 32);
-  bf->iterator = 0;
 
   ssize_t bytesRead = 0;
   size_t len = 0;
@@ -88,11 +87,16 @@ BufferedFile*buildBufferedFile(char*path)
     bf->text[bf->lines] = malloc(bytesRead);
     strncpy(bf->text[bf->lines], temp, bytesRead);
     ++bf->lines;
-
-    printf("%lu | %s\r\n", bytesRead, bf->text[bf->lines-1]);
   }
 
   free (temp);
+
+  //set iterator
+  if (bf->text != NULL){
+    bf->iterator = bf->text[0];
+  }else{
+    bf->iterator = NULL;
+  }
 
   return bf;
 }
@@ -103,9 +107,12 @@ int closeBufferedFile(BufferedFile*bf)
   if (bf==NULL)
     return 0;
 
-  free(bf->text);
   free(bf->filePath);
-  free(bf->iterator);
+  
+  for(size_t x = 0; x < bf->lines; ++x){
+    if (bf->text[x] != NULL) free(bf->text[x]);
+  }
+
   free(bf);
 
   return 1;
@@ -113,16 +120,22 @@ int closeBufferedFile(BufferedFile*bf)
 
 int saveBufferedFile(BufferedFile*bf)
 {
+  return saveBufferedFileAs(bf, bf->filePath);
+}
+
+int saveBufferedFileAs(BufferedFile*bf, char * dest)
+{
   if (bf==NULL)
     return 0;
 
-  FILE * fp = fopen(bf->filePath ,"w");
-
+  FILE * fp = fopen(dest ,"w");
+  
   if (fp==NULL)
     return 0;
 
   for (size_t x=0; x<bf->lines; ++x)
   {
+    printf("%s\r\n", bf->text[x]);
     #ifdef __WINDOWS
     fprintf(fp, "%s\r\n", bf->text[x]);
     #else//Linux
