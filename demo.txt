@@ -1,6 +1,0 @@
-This is a test file
-This is a new line
-
-There was a blank line before this one
-
-This is the last line

@@ -12,12 +12,13 @@
 #define DATA_TEST       4
 #define HASH_TEST       5
 
-#define CMODE HASH_TEST
+#define CMODE STRING_TEST
 
 #if CMODE == STRING_TEST
 int main ()
 {
-printf("TheWhole World = %s\n", toLowerc("TheWhole World"));
+    //char ** list;
+    printf("TheWhole World = %s\n", toLowerc("TheWhole World"));
 
 return 0;
 }
@@ -25,24 +26,24 @@ return 0;
 int main()
 {
 
-char * teststr = "test.txt";
-char * demostr = "demo.txt";
+    char * teststr = "test.txt";
+    char * demostr = "demo.txt";
 
-BufferedFile * bfile = buildBufferedFile(teststr);
+    BufferedFile * bfile = buildBufferedFile(teststr);
 
-if (!bfile){
-    printf("Fail\r\n");
-    return -1;
-}
+    if (!bfile){
+        printf("Fail\r\n");
+        return -1;
+    }
 
-saveBufferedFileAs(bfile, demostr);
-closeBufferedFile(bfile);
+    saveBufferedFileAs(bfile, demostr);
+    closeBufferedFile(bfile);
 
 }
 
 #elif CMODE == CGRAPHIC_TEST
 
-
+    
 #elif CMODE == HASH_TEST
 int main()
 {
