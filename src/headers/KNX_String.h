@@ -2,7 +2,6 @@
 #define KNX_STRING
 
 #include "strutil.h"
-
-#define TEST "TETETETET"
+#include "hash.h"
 
 #endif
