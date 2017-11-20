@@ -24,10 +24,10 @@ BITVRS 	= 64
 DEBUG 	= true
 EXPORT_PATH = ../_bin/$(BITVRS)/
 CLEAN_TEXT = *.o *.a *.lib
-INCLUDES = -I../headers
+INCLUDES = -Iheaders
 
 COMMON 	= 	-DKDK_VERSION=$(KDK_VERSION) -DPLATFORM=$(PLATFORM) -Iheaders \
-			-std=c11 -pedantic -lm -lpthread -m$(BITVRS) -Wall
+			-std=c11 -pedantic -lm -lpthread -m$(BITVRS) -Wall -g
 
 #export to sub makes
 export BITVRS

@@ -1,13 +1,10 @@
 #compiles testing application
-CC=gcc
-BITVRS=64
-GFLAGS= -O3 -L../_bin/$(BITVRS) -std=c11 -Wall -m$(BITVRS) -I ../src//headers
-LIBS= -lm -lKNX_Library
+GFLAGS= -O3 -I../src/headers
+LIBS= -lm -L$(EXPORT_PATH) -lKNX_Library
 SRC=Dev.c
-BITMODE=-DBITMODE=$(BITVRS)
 
 all:
-	$(CC) $(SRC) $(GFLAGS) $(BITMODE) $(LIBS) -o dev.exe
+	$(CC) $(SRC) $(COMMON) $(GFLAGS) $(LIBS) -o dev.exe
 
 clean:
 	rm -f *.o

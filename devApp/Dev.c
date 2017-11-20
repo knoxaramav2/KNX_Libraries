@@ -1,10 +1,13 @@
 #include <stdio.h>
 
-#include "headers.h"
+#include "KNX_String.h"
 
 int main(){
 
-    printf("%d\r\n", test());
+    char msg [] = "Hello World!";
+    printf("%s\r\n", toLowercase(msg));
+    printf("%s\r\n", toUppercase(msg));
+
 
     return 0;
 }
