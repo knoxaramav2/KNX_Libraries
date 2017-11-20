@@ -1,7 +1,7 @@
 #compiles testing application
 CC=gcc
 BITVRS=64
-GFLAGS= -O3 -L../_bin/$(BITVRS) -std=c11 -Wall -m$(BITVRS) -I ../headers
+GFLAGS= -O3 -L../_bin/$(BITVRS) -std=c11 -Wall -m$(BITVRS) -I ../src//headers
 LIBS= -lm -lKNX_Library
 SRC=Dev.c
 BITMODE=-DBITMODE=$(BITVRS)
