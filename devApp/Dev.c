@@ -1,22 +1,29 @@
 #include <stdio.h>
 
 #include "KNX_String.h"
+#include "KNX_Console.h"
 
 int main(){
 
-    char fileStr [] = "this/is/a.test";
+    char val = 0;
 
-    printf("%s\r\n", getFileExtension(fileStr));
-    printf("%s\r\n", getFilePath(fileStr));
-    printf("%s\r\n", getFileName(fileStr, 0));
-    printf("%s\r\n", getFileName(fileStr, 1));
+    startConsoleControl();
+    printf("%c\r\n", getchar());
 
-    char fileStr2 [] = "a.test";
+    #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+    printf("WIN\r\n");
+    #elif defined (__CYGWIN__)
+    printf("CYG\r\n");
+    #else
+    printf("LIN\r\n");
+    #endif
 
-    printf("%s\r\n", getFileExtension(fileStr2));
-    printf("%s\r\n", getFilePath(fileStr2));
-    printf("%s\r\n", getFileName(fileStr2, 0));
-    printf("%s\r\n", getFileName(fileStr2, 1));
+    while(val != ' '){
+        val = getKeyPress();
+        printf("%d\r\n", val);
+    }
+
+    endConsoleControl();
 
     return 0;
 }
