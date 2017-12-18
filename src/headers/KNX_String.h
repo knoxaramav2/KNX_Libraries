@@ -3,5 +3,6 @@
 
 #include "strutil.h"
 #include "hash.h"
+#include "file_string.h"
 
 #endif

@@ -4,13 +4,19 @@
 
 int main(){
 
-    char msg [] = "a";
-    printf("%s\r\n", toLowercase(msg));
-    printf("%s\r\n", toUppercase(msg));
-    printf("%lx\r\n", fnv1a_32(msg));
-    printf("%llx\r\n", fnv1a_64(msg));
-    printf("%lx\r\n", fnv_32(msg));
-    printf("%llx\r\n", fnv_64(msg));
+    char fileStr [] = "this/is/a.test";
+
+    printf("%s\r\n", getFileExtension(fileStr));
+    printf("%s\r\n", getFilePath(fileStr));
+    printf("%s\r\n", getFileName(fileStr, 0));
+    printf("%s\r\n", getFileName(fileStr, 1));
+
+    char fileStr2 [] = "a.test";
+
+    printf("%s\r\n", getFileExtension(fileStr2));
+    printf("%s\r\n", getFilePath(fileStr2));
+    printf("%s\r\n", getFileName(fileStr2, 0));
+    printf("%s\r\n", getFileName(fileStr2, 1));
 
     return 0;
 }

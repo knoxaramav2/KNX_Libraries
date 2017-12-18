@@ -1,7 +1,7 @@
 #compile KNX library
 OUT = libKNX_Library$(LIB_EXT)
 
-SRC = strutil.c hash.c
+SRC = strutil.c hash.c tree.c filestr.c
 DIRS := $(wildcard */.)
 GARBAGE := $(foreach DIR, $(DIRS), $(DIR)/$(CLEAN_TEXT))
 
