@@ -2,16 +2,22 @@
 #include <stdio.h>
 #include <termios.h>
 #include <unistd.h>
+#include <poll.h>
+#include <windows.h>
 
 #include "KNX_Console.h"
 
 struct termios old_termios, new_termios;
+struct pollfd poll_fd = { .fd = STDIN_FILENO
+                           , .events = POLLIN | POLLRDBAND | POLLRDNORM | POLLPRI };
 
 int startConsoleControl(){
 
     tcgetattr( STDIN_FILENO, &old_termios );
     new_termios = old_termios;
     new_termios.c_lflag &= ~( ICANON | ECHO );
+
+    //for handling escape sequences
 
     tcsetattr( STDIN_FILENO, TCSANOW, &new_termios );
 
@@ -23,5 +29,22 @@ void endConsoleControl(){
 }
 
 unsigned getKeyPress(){
-    return (unsigned) getchar();
+
+    unsigned c = getchar();
+    printf("%c||%x\r\n", (char)c, c);
+
+    ///TODO Support Esc key, other sequences
+    if (c == 27){
+        //Get Arrow Keys
+        if (getchar() == 91){
+            switch(getchar()){
+                case 65: c = KEY_ARROW_UP; break;
+                case 66: c = KEY_ARROW_DOWN; break;
+                case 67: c = KEY_ARROW_RIGHT; break;
+                case 68: c = KEY_ARROW_LEFT; break;
+            }
+        }
+    }
+
+    return c;
 }

@@ -3,6 +3,8 @@
 
 #include "kw_code.h"
 
+
+
 ///route all control through library commands
 int startConsoleControl();
 ///reset terminal control to normal
@@ -14,8 +16,5 @@ void endConsoleControl();
 unsigned getKeyPress();
 
 //informational
-
-///returns [Left/Right]_[Modifier] for modifier keys
-unsigned getAlterState();
 
 #endif
