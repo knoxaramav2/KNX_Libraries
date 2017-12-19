@@ -8,8 +8,11 @@
 #include "KNX_Console.h"
 
 struct termios old_termios, new_termios;
-struct pollfd poll_fd = { .fd = STDIN_FILENO
-                           , .events = POLLIN | POLLRDBAND | POLLRDNORM | POLLPRI };
+struct pollfd poll_fd = { .fd = STDIN_FILENO, .events = 
+    POLLIN      | 
+    POLLRDBAND  | 
+    POLLRDNORM  | 
+    POLLPRI };
 
 int startConsoleControl(){
 
@@ -26,6 +29,16 @@ int startConsoleControl(){
 
 void endConsoleControl(){
     tcsetattr( STDIN_FILENO, TCSANOW, &old_termios );
+}
+
+void setEcho(char c){
+    if (c){
+        new_termios.c_lflag |= ECHO;
+    } else {
+        new_termios.c_lflag &= ~ECHO;
+    }
+
+    tcsetattr( STDIN_FILENO, TCSANOW, &new_termios );
 }
 
 unsigned getKeyPress(){
@@ -47,4 +60,10 @@ unsigned getKeyPress(){
     }
 
     return c;
+}
+
+
+void putAt(terminal * term, unsigned val, unsigned x, unsigned y){
+    printf("\033[%d;%dH%c", (y), (x), CELL_VALUE(val));
+    //printf("%c", CELL_VALUE(val));
 }

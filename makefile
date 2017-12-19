@@ -27,7 +27,7 @@ CLEAN_TEXT = *.o *.a *.lib
 INCLUDES = -Iheaders
 
 COMMON 	= 	-DKDK_VERSION=$(KDK_VERSION) -DPLATFORM=$(PLATFORM) -Iheaders \
-			-std=c11 -pedantic -lm -lpthread -m$(BITVRS) -Wall -g
+			-std=c11 -pedantic -lm -lpthread -m$(BITVRS) -Wall -g -rdynamic
 
 #export to sub makes
 export BITVRS

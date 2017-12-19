@@ -1,27 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 #include "KNX_String.h"
 #include "KNX_Console.h"
+#define PI 3.14159265
 
 int main(){
 
-    unsigned val = 0;
-
     startConsoleControl();
 
-    #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-    printf("WIN\r\n");
-    #elif defined (__CYGWIN__)
-    printf("CYG\r\n");
-    #else
-    printf("LIN\r\n");
-    #endif
+    terminal * term = createTerminal();
 
-    while(val != ' '){
-        val = getKeyPress();
-        printf("___%u\r\n", val);
+    setEcho(1);
+
+    struct winsize w;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+
+    printf ("lines %d\n", w.ws_row);
+    printf ("columns %d\n", w.ws_col);
+
+    printf("\033[H\033[J");
+
+    for(int i=0; i < 360; ++i){
+        putAt(term ,(unsigned)'X',  i/3, abs(8.0f*sin(i*(PI/180))));
     }
 
+    destroyTerminal(term);
     endConsoleControl();
 
     return 0;
