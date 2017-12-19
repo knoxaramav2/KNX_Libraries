@@ -79,7 +79,6 @@ void flatten(consComponent * dest, consComponent * src){
 unsigned getKeyPress(){
 
     unsigned c = getchar();
-    printf("%c||%x\r\n", (char)c, c);
 
     ///TODO Support Esc key, other sequences
     if (c == 27){
