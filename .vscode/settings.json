@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "knx_console.h": "c"
+        "knx_console.h": "c",
+        "knx_string.h": "c"
     }
 }

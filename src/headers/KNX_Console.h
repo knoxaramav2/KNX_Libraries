@@ -11,10 +11,10 @@
 
 typedef struct consComponent{
     unsigned ** buffer;
-    unsigned width, height;
     unsigned id;
 
-    int xOffset, yOffet;
+    int width, height;
+    int xOffset, yOffset;
 
     struct consComponent ** children;
 } consComponent;
@@ -38,8 +38,9 @@ void endConsoleControl();
 void setEcho(char);
 
 ///interraction
+void flatten(consComponent *, consComponent *);
 void clearScreen(terminal *);
-void putAt(terminal *, unsigned, unsigned, unsigned);
+int putAt(consComponent *, unsigned, unsigned, unsigned);
 
 /** Returns a keycode for a key stroke, in ascii or 
  *  as a macro for special keys, such as arrows

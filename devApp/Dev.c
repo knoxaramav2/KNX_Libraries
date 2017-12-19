@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <unistd.h>
 
 #include "KNX_String.h"
 #include "KNX_Console.h"
@@ -14,17 +15,18 @@ int main(){
 
     setEcho(1);
 
-    struct winsize w;
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-
-    printf ("lines %d\n", w.ws_row);
-    printf ("columns %d\n", w.ws_col);
-
     printf("\033[H\033[J");
 
-    for(int i=0; i < 360; ++i){
-        putAt(term ,(unsigned)'X',  i/3, abs(8.0f*sin(i*(PI/180))));
+    for(int i=0; i < 30; ++i){
+        putAt(&term->component ,(unsigned)'A' + i,  i, i);
+        fflush(stdout);
     }
+
+    renderTerminal(term);
+
+    printf("-------------%d %d------\r\n", 
+        term->component.width,
+        term->component.height);
 
     destroyTerminal(term);
     endConsoleControl();
