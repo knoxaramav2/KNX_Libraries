@@ -21,7 +21,6 @@ typedef struct consComponent{
 
 typedef struct terminal{
     consComponent component;
-    struct winsize size;
 } terminal;
 
 terminal * createTerminal();
@@ -41,6 +40,7 @@ void setEcho(char);
 void flatten(consComponent *, consComponent *);
 void clearScreen(terminal *);
 int putAt(consComponent *, unsigned, unsigned, unsigned);
+void getConsoleDimensions(int *, int *);
 
 /** Returns a keycode for a key stroke, in ascii or 
  *  as a macro for special keys, such as arrows

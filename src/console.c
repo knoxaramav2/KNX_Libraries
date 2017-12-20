@@ -7,15 +7,13 @@ terminal * createTerminal(){
     terminal * term = malloc(sizeof(terminal));
 
     //Get current terminal dimensions
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &term->size);
+    getConsoleDimensions(&term->component.width, &term->component.height);
 
-    term->component.buffer = malloc(sizeof(unsigned *) * term->size.ws_col);
-    term->component.width = term->size.ws_col;
-    term->component.height = term->size.ws_row;
+    term->component.buffer = malloc(sizeof(unsigned *) * term->component.width);
 
-    for (size_t i = 0; i < term->size.ws_col; ++i){
-        term->component.buffer[i] = malloc(term->size.ws_col);
-        for (size_t j = 0; j < term->size.ws_row; ++j){
+    for (size_t i = 0; i < term->component.width; ++i){
+        term->component.buffer[i] = malloc(term->component.width);
+        for (size_t j = 0; j < term->component.height; ++j){
             term->component.buffer[i][j] = ' ' | 0x00;
         }
     }
@@ -25,7 +23,7 @@ terminal * createTerminal(){
 
 void destroyTerminal(terminal * term){
 
-    for (size_t i = 0; i < term->size.ws_col; ++i){
+    for (size_t i = 0; i < term->component.width; ++i){
         free (term->component.buffer[i]);
     }
 

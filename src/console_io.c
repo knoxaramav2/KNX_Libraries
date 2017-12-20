@@ -1,45 +1,7 @@
 #include <string.h>
 #include <stdio.h>
-#include <termios.h>
-#include <unistd.h>
-#include <poll.h>
-#include <windows.h>
 
 #include "KNX_Console.h"
-
-struct termios old_termios, new_termios;
-struct pollfd poll_fd = { .fd = STDIN_FILENO, .events = 
-    POLLIN      | 
-    POLLRDBAND  | 
-    POLLRDNORM  | 
-    POLLPRI };
-
-int startConsoleControl(){
-
-    tcgetattr( STDIN_FILENO, &old_termios );
-    new_termios = old_termios;
-    new_termios.c_lflag &= ~( ICANON | ECHO );
-
-    //for handling escape sequences
-
-    tcsetattr( STDIN_FILENO, TCSANOW, &new_termios );
-
-    return 1;
-}
-
-void endConsoleControl(){
-    tcsetattr( STDIN_FILENO, TCSANOW, &old_termios );
-}
-
-void setEcho(char c){
-    if (c){
-        new_termios.c_lflag |= ECHO;
-    } else {
-        new_termios.c_lflag &= ~ECHO;
-    }
-
-    tcsetattr( STDIN_FILENO, TCSANOW, &new_termios );
-}
 
 void flatten(consComponent * dest, consComponent * src){
 

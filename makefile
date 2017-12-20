@@ -5,13 +5,11 @@ UNITDIR = src devApp
 #get OS
 ifeq ($(shell uname), Linux)
 	FixPath = $1
-	PLATFORM = -D__LINUX
 	LIB_EXT = .a
 	EXEC_EXT = 
 else
 #Windows
 	FixPath = $(subst /,\,$1)
-	PLATFORM = -D__WINDOWS
 	LIB_EXT = .a#.lib
 	EXEC_EXT = .exe
 endif
@@ -26,7 +24,7 @@ EXPORT_PATH = ../_bin/$(BITVRS)/
 CLEAN_TEXT = *.o *.a *.lib
 INCLUDES = -Iheaders
 
-COMMON 	= 	-DKDK_VERSION=$(KDK_VERSION) -DPLATFORM=$(PLATFORM) -Iheaders \
+COMMON 	= 	-DKDK_VERSION=$(KDK_VERSION) -Iheaders \
 			-std=c11 -pedantic -lm -lpthread -m$(BITVRS) -Wall -g -rdynamic
 
 #export to sub makes
@@ -39,7 +37,6 @@ export EXPORT_PATH
 export CLEAN_TEXT
 export INCLUDES
 export KDK_VERSION
-export PLATFORM
 export LIB_EXT
 export EXEC_EXT
 export OBJ_FILES

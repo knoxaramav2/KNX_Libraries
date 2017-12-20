@@ -14,19 +14,16 @@ int main(){
     terminal * term = createTerminal();
 
     setEcho(1);
+    return 0;
+    //char c;
 
-    printf("\033[H\033[J");
+    //do{
+    //    c = getKeyPress();
+    //} while(c != '5');
 
-    for(int i=0; i < 30; ++i){
-        putAt(&term->component ,(unsigned)'A' + i,  i, i);
-        fflush(stdout);
-    }
+    getConsoleDimensions(&term->component.width, &term->component.height);
 
-    renderTerminal(term);
-
-    printf("-------------%d %d------\r\n", 
-        term->component.width,
-        term->component.height);
+    printf("%d %d\r\n", term->component.width, term->component.height);
 
     destroyTerminal(term);
     endConsoleControl();
