@@ -4,8 +4,8 @@ LIBS= -lm -L$(EXPORT_PATH) -lKNX_Library
 SRC=Dev.c
 O_SRC = $(SRC:.c=.o) #DELETE
 
-#all:
-#	$(CC) $(SRC) $(COMMON) $(GFLAGS) $(LIBS) -o dev.exe
+all:
+	$(CC) $(SRC) $(COMMON) $(GFLAGS) $(LIBS) -o dev.exe
 
 .c.o:
 	$(CC) $(COMMON) $(GFLAGS) -c -o $@ $<

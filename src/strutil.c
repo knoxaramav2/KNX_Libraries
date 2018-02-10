@@ -28,3 +28,24 @@ char * toUppercase(char * raw){
 
     return ret;
 }
+
+
+int isNumber(char * raw){
+
+    char decimal = 0;
+
+    while (*raw != 0){
+        if (*raw == '.'){
+            if (decimal == 1)
+                return 0;
+            decimal = 1;
+        } else {
+            if (*raw < '0' || *raw > '9')
+                return 0;
+        }
+
+        ++raw;
+    }
+
+    return decimal == 0 ? 1 : 2;
+}

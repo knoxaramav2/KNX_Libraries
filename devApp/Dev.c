@@ -9,24 +9,17 @@
 
 int main(){
 
-    startConsoleControl();
+    char s1 [] = {"125"};
+    char s2 [] = {"12.5"};
+    char s3 [] = {"1.2.5"};
+    char s4 [] = {"12.a"};
+    char s5 [] = {"hello"};
 
-    terminal * term = createTerminal();
-
-    setEcho(1);
-    return 0;
-    //char c;
-
-    //do{
-    //    c = getKeyPress();
-    //} while(c != '5');
-
-    getConsoleDimensions(&term->component.width, &term->component.height);
-
-    printf("%d %d\r\n", term->component.width, term->component.height);
-
-    destroyTerminal(term);
-    endConsoleControl();
+    printf("%d\r\n", isNumber(s1));
+    printf("%d\r\n", isNumber(s2));
+    printf("%d\r\n", isNumber(s3));
+    printf("%d\r\n", isNumber(s4));
+    printf("%d\r\n", isNumber(s5));
 
     return 0;
 }
