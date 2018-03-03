@@ -1,6 +1,10 @@
 #ifndef KNX_CONSOLE
 #define KNX_CONSOLE
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #include <sys/ioctl.h>
 #include <unistd.h>
 
@@ -48,5 +52,9 @@ void getConsoleDimensions(int *, int *);
 unsigned getKeyPress();
 
 //informational
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
